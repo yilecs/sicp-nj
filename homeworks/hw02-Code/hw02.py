@@ -214,12 +214,12 @@ def successor(n):
 
 def one(f):
     """Church numeral 1: same as successor(zero)"""
-    successor(zero)
+    return lambda x: f(x)
 
 
 def two(f):
     """Church numeral 2: same as successor(successor(zero))"""
-    successor(one)
+    return lambda x: f(f(x))
 
 
 three = successor(two)
@@ -237,6 +237,7 @@ def church_to_int(n):
     >>> church_to_int(three)
     3
     """
+    return n(lambda x: x + 1)(0)
     
 
 
@@ -246,7 +247,8 @@ def add_church(m, n):
     >>> church_to_int(add_church(two, three))
     5
     """
-    "*** YOUR CODE HERE ***"
+    return lambda f: lambda x: m(f)(n(f)(x))
+    
 
 
 def mul_church(m, n):
@@ -257,7 +259,7 @@ def mul_church(m, n):
     >>> church_to_int(mul_church(three, four))
     12
     """
-    "*** YOUR CODE HERE ***"
+    return lambda f: m(n(f))
 
 
 def pow_church(m, n):
@@ -268,4 +270,5 @@ def pow_church(m, n):
     >>> church_to_int(pow_church(three, two))
     9
     """
-    "*** YOUR CODE HERE ***"
+    return lambda f: n(m)(f)
+    
