@@ -1,4 +1,3 @@
-
 """ Homework 3: Recursion """
 
 HW_SOURCE_FILE = 'hw03.py'
@@ -255,8 +254,6 @@ def move_stack(n, start, end):
         move_stack(1, start, end)
         move_stack(n - 1, other, end)
 
-
-
 def multiadder(n):
     """Return a function that takes N arguments, one at a time, and adds them.
     >>> f = multiadder(3)
@@ -274,9 +271,10 @@ def multiadder(n):
     ...       ['Nonlocal', 'Global'])
     True
     """
-    def adder(x):
-        
-            
+    if n == 1:
+        return lambda x: x
+    else:
+        return lambda x: lambda y: multiadder(n - 1)(x + y)
 
 
 
@@ -337,5 +335,3 @@ my_number_of_six.__doc__ = """Return the number of 6 in each digit of a positive
 >>> my_number_of_six(123456)
 1
 """
-
-    

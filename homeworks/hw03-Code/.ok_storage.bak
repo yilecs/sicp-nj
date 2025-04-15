@@ -1,5 +1,10 @@
+<<<<<<< HEAD
 'integrate-correct', (0, 66)
 'pingpong-correct', (512, 66)
 'balanced-correct', (1024, 66)
 'count_change-correct', (1536, 66)
 'move_stack-correct', (2048, 66)
+||||||| 47a6db2
+=======
+'multiadder-correct', (0, 66)
+>>>>>>> refs/remotes/origin/master
